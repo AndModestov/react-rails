@@ -1,0 +1,20 @@
+.main-container {
+  margin-top: 90px;
+}
+
+.active {
+  color: green;
+}
+
+.product-card {
+  border: 1px solid black;
+  width: 300px;
+  padding: 10px;
+  margin: 10px 30px;
+  text-align: center;
+  display: inline-block;
+}
+
+header {
+  padding: 20px 40px;
+}
