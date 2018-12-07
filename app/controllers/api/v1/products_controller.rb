@@ -1,10 +1,10 @@
 class Api::V1::ProductsController < ApplicationController
   def index
-    render json: { products: Product.all }
+    respond_with :api, :v1, Product.all
   end
 
   def show
-    render json: { product: product }
+    respond_with :api, :v1, product
   end
 
   private

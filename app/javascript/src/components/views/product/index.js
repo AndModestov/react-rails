@@ -3,7 +3,8 @@ import request from "superagent";
 import humps from "humps";
 
 import { productsApi } from 'src/helpers/routes';
-import ProductCard from 'src/components/views/catalog/product-card';
+import AddToBasketButton from 'src/components/views/catalog/add-to-basket-button';
+import Gallery from './gallery';
 
 class ProductPage extends Component {
   constructor(props) {
@@ -26,11 +27,13 @@ class ProductPage extends Component {
 
   render() {
     const { product } = this.state;
+    const productId = this.props.id;
 
     return (
       <div>
-        <h2>Product:</h2>
-        <ProductCard product={product} />
+        <h2>{product.name} <i>({product.price}$)</i></h2>
+        <Gallery productId={productId} />
+        <AddToBasketButton product={product} />
       </div>
     )
   }
