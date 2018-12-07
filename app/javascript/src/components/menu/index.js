@@ -11,10 +11,10 @@ class Menu extends React.Component {
         <div className="navbar-inner">
           <nav>
             <ul className="nav nav-pills">
-              <li>
+              <li className="menu-button">
                 <NavLink activeClassName="active" exact to={catalogPath()}>Catalog</NavLink>
               </li>
-              <li>
+              <li className="menu-button"> 
                 <NavLink activeClassName="active" to={contactsPath()}>Contacts</NavLink>
               </li>
               <li className="pull-right">

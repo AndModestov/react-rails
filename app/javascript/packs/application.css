@@ -1,5 +1,5 @@
 .main-container {
-  margin-top: 90px;
+  margin-top: 110px;
 }
 
 .active {
@@ -7,10 +7,10 @@
 }
 
 .product-card {
-  border: 1px solid black;
+  border: 10px solid black;
   width: 300px;
   padding: 10px;
-  margin: 10px 30px;
+  margin: 10px 40px;
   text-align: center;
   display: inline-block;
 }
@@ -29,4 +29,26 @@ header {
 .main-image {
   text-align: center;
   margin-bottom: 20px;
+}
+
+.slides {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: 20px solid black;
+}
+
+.menu-button {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.basket-button {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.basket-button-input {
+  width: 50px;
 }

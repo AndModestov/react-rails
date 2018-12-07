@@ -24,7 +24,7 @@ class Gallery extends Component {
     request(productImagesApi(productId))
       .then(({ body }) => {
         const images = humps.camelizeKeys(body.images);
-        const activeImageUrl = images[0] ? images[0].url : '';
+        const activeImageUrl = images[0].url;
         this.setState({ images, activeImageUrl });
       })
   }

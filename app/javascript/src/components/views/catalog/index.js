@@ -3,6 +3,7 @@ import request from "superagent";
 import humps from "humps";
 
 import Catalog from 'src/components/views/catalog/catalog';
+import Slides from 'src/components/views/catalog/slides';
 import { productsApi } from 'src/helpers/routes';
 
 class CatalogPage extends Component {
@@ -26,7 +27,10 @@ class CatalogPage extends Component {
     const { products } = this.state;
 
     return (
-      <Catalog products={products} />
+      <div>
+        <Slides />
+        <Catalog products={products} />
+      </div>
     )
   }
 }
