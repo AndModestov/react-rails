@@ -23,10 +23,9 @@ class ProductCard extends Component {
     const product = this.props.product;
 
     return (
-      <div
-        onDragStart={this.onDragStart}
-        className="product-card"
-        draggable>
+      <div onDragStart={this.onDragStart}
+           className="product-card"
+           draggable>
         <Link to={productPath(product.id)}>
           <Image src={product.imageUrl}
                  alt={product.name}

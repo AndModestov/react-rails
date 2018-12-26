@@ -29,7 +29,8 @@ class AddToBasketButton extends Component {
               <button onClick={() => addToBasket(product, amount)}>
                 Add to Basket
               </button>
-              <input type="number"
+              <input className="basket-button-input"
+                     type="number"
                      defaultValue="1"
                      onChange={this.onAmountChange} />
             </div>

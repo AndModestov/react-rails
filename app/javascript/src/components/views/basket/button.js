@@ -26,10 +26,11 @@ class BasketButton extends Component {
       {
         ({ productsInBasket, addToBasket }) => {
           return (
-            <div onDragOver={this.onDragOver}
+            <div className="basket-button"
+                 onDragOver={this.onDragOver}
                  onDrop={(e) => this.onDragDrop(e, addToBasket)}>
               <NavLink activeClassName="active" to={basketPath()}>
-                <h4> Basket ({productsInBasket.length})</h4>
+                Basket ({productsInBasket.length})
               </NavLink>
             </div>
           )
