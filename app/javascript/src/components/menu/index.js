@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import { catalogPath, contactsPath } from "src/helpers/routes";
-import BasketButton from 'src/components/views/basket/button';
+import BasketButton from "src/components/views/basket/button";
 
 class Menu extends React.Component {
   render() {

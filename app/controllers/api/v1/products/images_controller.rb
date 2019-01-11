@@ -1,6 +1,6 @@
 class Api::V1::Products::ImagesController < ApplicationController
   def index
-    respond_with :api, :v1, product.images
+    respond_with :api, :v1, product.images, root: 'images'
   end
 
   private

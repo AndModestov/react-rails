@@ -1,8 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
-import BasketContext from 'src/contexts/basket-context';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+import { addProduct } from "src/actions/Basket";
 import { basketPath } from "src/helpers/routes";
+
+const actionsToProps = (dispatch) => (bindActionCreators({ addProduct }, dispatch));
+
+const stateToProps = (state) => ({
+  products: state.basket.products
+});
 
 class BasketButton extends Component {
   constructor(props) {
@@ -11,9 +20,9 @@ class BasketButton extends Component {
     this.onDragOver = this.onDragOver.bind(this);
   }
 
-  onDragDrop(e, addToBasket) {
+  onDragDrop(e) {
     const product = JSON.parse(e.dataTransfer.getData("product"));
-    addToBasket(product);
+    this.props.addProduct({ ...product, amount: 1 });
   }
 
   onDragOver(e) {
@@ -21,24 +30,18 @@ class BasketButton extends Component {
   }
 
   render() {
+    let { products } = this.props;
+
     return (
-      <BasketContext.Consumer>
-      {
-        ({ productsInBasket, addToBasket }) => {
-          return (
-            <div className="basket-button"
-                 onDragOver={this.onDragOver}
-                 onDrop={(e) => this.onDragDrop(e, addToBasket)}>
-              <NavLink activeClassName="active" to={basketPath()}>
-                Basket ({productsInBasket.length})
-              </NavLink>
-            </div>
-          )
-        }
-      }
-      </BasketContext.Consumer>
+      <div className="basket-button"
+           onDragOver={this.onDragOver}
+           onDrop={(e) => this.onDragDrop(e)}>
+        <NavLink activeClassName="active" to={basketPath()}>
+          Basket ({products.length})
+        </NavLink>
+      </div>
     )
   }
 }
 
-export default BasketButton;
+export default connect(stateToProps, actionsToProps)(BasketButton);

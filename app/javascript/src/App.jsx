@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
 
 import routes from "src/routes";
 import Menu from "src/components/menu";
-import BasketContainer from "src/components/basket-container"
+import store from "src/store";
 
 const App = () => (
-  <BasketContainer>
+  <Provider store={store}>
     <Router basename="/app">
       <div className="container">
         <Menu />
@@ -19,7 +20,7 @@ const App = () => (
         </Switch>
       </div>
     </Router>
-  </BasketContainer>
+  </Provider>
 );
 
 export default App;

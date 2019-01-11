@@ -1,30 +1,32 @@
-import React, { Component } from 'react';
-import request from "superagent";
-import humps from "humps";
+import React, { Component } from "react";
 
-import Catalog from 'src/components/views/catalog/catalog';
-import Slides from 'src/components/views/catalog/slides';
-import { productsApi } from 'src/helpers/routes';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+import Catalog from "src/components/views/catalog/catalog";
+import Slides from "src/components/views/catalog/slides";
+import { productsApi } from "src/helpers/routes";
+
+import { fetchProducts } from "src/actions/Products"
+
+const actionsToProps = (dispatch) => (bindActionCreators({ fetchProducts }, dispatch));
+
+const stateToProps = (state) => ({
+  products: state.products.entries,
+  isFetching: state.products.isFetching
+});
 
 class CatalogPage extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      products: []
-    }
   }
 
   componentDidMount() {
-    request(productsApi())
-      .then(({ body }) => {
-        const products = humps.camelizeKeys(body.products);
-        this.setState({ products });
-      })
+    this.props.fetchProducts();
   }
 
   render() {
-    const { products } = this.state;
+    const { products } = this.props;
 
     return (
       <div>
@@ -35,4 +37,4 @@ class CatalogPage extends Component {
   }
 }
 
-export default CatalogPage;
+export default connect(stateToProps, actionsToProps)(CatalogPage);

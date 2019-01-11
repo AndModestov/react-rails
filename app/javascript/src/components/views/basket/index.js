@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
-import BasketContext from 'src/contexts/basket-context';
+import { connect } from "react-redux";
+
+const stateToProps = (state) => ({
+  products: state.basket.products
+});
 
 class BasketPage extends Component {
   constructor(props) {
@@ -8,29 +12,23 @@ class BasketPage extends Component {
   }
 
   render() {
+    const { products } = this.props;
+
     return (
-      <BasketContext.Consumer>
-      {
-        ({ productsInBasket }) => {
-          return (
-            <div>
-              <h2>Goods In Basket:</h2>
-              <h3>
-                <ul>
-                  {
-                    productsInBasket.map((prod, key) => (
-                      <li key={key}>{prod.name} - {prod.price}$ ({prod.amount})</li>
-                    ))
-                  }
-                </ul>
-              </h3>
-            </div>
-          )
-        }
-      }
-      </BasketContext.Consumer>
+      <div>
+        <h2>Goods In Basket:</h2>
+        <h3>
+          <ul>
+            {
+              products.map((prod, key) => (
+                <li key={key}>{prod.name} - {prod.price}$ ({prod.amount})</li>
+              ))
+            }
+          </ul>
+        </h3>
+      </div>
     )
   }
 }
 
-export default BasketPage;
+export default connect(stateToProps, null)(BasketPage);
