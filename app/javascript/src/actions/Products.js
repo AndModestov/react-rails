@@ -1,33 +1,18 @@
-import request from "superagent";
-import humps from "humps";
-
 import * as types from "src/constants/actionTypes/ProductsActionTypes";
 import { productsApi } from "src/helpers/routes";
 
-const requestProducts = () => ({
-  type: types.FETCH_PRODUCTS_REQUEST
-});
-
-const receiveProducts = (products) => ({
-  type: types.FETCH_PRODUCTS_SUCCESS,
-  entries: products
-});
-
-const errorProducts = () => ({
-  type: types.FETCH_PRODUCTS_ERROR
-});
+import { API_CALL } from "src/middleware/API";
 
 export function fetchProducts() {
-  return (dispatch) => {
-    dispatch(requestProducts());
-
-    return request(productsApi())
-      .then(({ body }) => {
-        let products = humps.camelizeKeys(body.products);
-        dispatch(receiveProducts(products));
-      })
-      .catch((error) => {
-        dispatch(errorProducts());
-      })
+  return {
+    [API_CALL]: {
+      endpoint: productsApi(),
+      method: "GET",
+      types: [
+        types.FETCH_PRODUCTS_REQUEST,
+        types.FETCH_PRODUCTS_SUCCESS,
+        types.FETCH_PRODUCTS_ERROR
+      ]
+    }
   }
 }

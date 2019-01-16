@@ -15,7 +15,7 @@ export default function(state = initialState, action) {
     case types.FETCH_PRODUCTS_ERROR:
       return assign({}, state, { error: true });
     case types.FETCH_PRODUCTS_SUCCESS:
-      return assign({}, state, { entries: action.entries });
+      return assign({}, state, { entries: action.data.products });
     default:
       return state;
   }
