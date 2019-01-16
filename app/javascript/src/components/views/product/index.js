@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import request from "superagent";
 import humps from "humps";
 
-import { productsApi } from 'src/helpers/routes';
-import AddToBasketButton from 'src/components/views/catalog/add-to-basket-button';
-import Gallery from './gallery';
+import { productsApi } from "src/helpers/routes";
+import AddToBasketButton from "src/components/views/catalog/add-to-basket-button";
+import Gallery from "./gallery";
 
 class ProductPage extends Component {
   constructor(props) {

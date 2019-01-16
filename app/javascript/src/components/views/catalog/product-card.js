@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Image from './image';
-import Price from './price';
-import TextBox from './text-box';
-import AddToBasketButton from './add-to-basket-button';
+import Image from "./image";
+import Price from "./price";
+import TextBox from "./text-box";
+import AddToBasketButton from "./add-to-basket-button";
 import { Link } from "react-router-dom";
 import { productPath } from "src/helpers/routes";
 

@@ -1,5 +1,5 @@
-import CatalogPage from 'src/components/views/catalog';
-import { catalogPath } from 'src/helpers/routes'
+import CatalogPage from "src/components/views/catalog";
+import { catalogPath } from "src/helpers/routes"
 
 export default {
   path: catalogPath(),

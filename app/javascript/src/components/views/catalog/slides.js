@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import request from "superagent";
 import humps from "humps";
 
-import { imagesApi } from 'src/helpers/routes';
+import { imagesApi } from "src/helpers/routes";
 
 class Slides extends Component {
   constructor(props) {

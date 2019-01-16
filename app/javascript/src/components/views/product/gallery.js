@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import request from "superagent";
 import humps from "humps";
 
-import { productImagesApi } from 'src/helpers/routes';
-import GalleryImage from './gallery-image';
-import MainImage from './main-image';
+import { productImagesApi } from "src/helpers/routes";
+import GalleryImage from "./gallery-image";
+import MainImage from "./main-image";
 
 class Gallery extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class Gallery extends Component {
 
     this.state = {
       images: [],
-      activeImageUrl: ''
+      activeImageUrl: ""
     }
 
     this.changeActiveImage = this.changeActiveImage.bind(this);
