@@ -6,6 +6,7 @@ import history from "src/helpers/history";
 import routes from "src/routes";
 import Menu from "src/components/menu";
 import store from "src/store";
+import { getLocalStorageData } from "src/actions/Basket";
 
 function historyCallback(location) {
   routes.some(
@@ -20,6 +21,7 @@ function historyCallback(location) {
   )
 }
 
+store.dispatch(getLocalStorageData());
 history.listen(historyCallback);
 historyCallback(window.location);
 
