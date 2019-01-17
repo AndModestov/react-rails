@@ -8,7 +8,7 @@ const nextAction = (action, data) => (
   assign({}, action, data, { [API_CALL]: undefined })
 );
 
-export default () => next => action => {
+export default store => next => action => {
   if (!action[API_CALL]) return next(action);
 
   let params = action[API_CALL];
