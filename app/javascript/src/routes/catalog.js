@@ -7,7 +7,7 @@ export default {
   path: catalogPath(),
   component: CatalogPage,
   exact: true,
-  prepareData: (store) => {
+  prepareData: (store, params) => {
     store.dispatch(fetchProducts());
   }
 }

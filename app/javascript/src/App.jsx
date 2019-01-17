@@ -8,11 +8,13 @@ import Menu from "src/components/menu";
 import store from "src/store";
 
 function historyCallback(location) {
-  routes.forEach(
+  routes.some(
     (route) => {
       const path = location.pathname.replace('/app', '');
-      if (matchPath(path, route) && route.prepareData) {
-        route.prepareData(store);
+      const match = matchPath(path, route);
+
+      if (match && route.prepareData) {
+        route.prepareData(store, match.params);
       }
     }
   )

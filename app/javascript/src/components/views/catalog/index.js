@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 import Catalog from "src/components/views/catalog/catalog";
 import Slides from "src/components/views/catalog/slides";
-import { productsApi } from "src/helpers/routes";
 
 const stateToProps = (state) => ({
   products: state.products.entries,
