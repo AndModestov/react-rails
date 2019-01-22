@@ -10,12 +10,12 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case types.FETCH_PRODUCTS_REQUEST:
+    case types.FETCH_PRODUCT_REQUEST:
       return assign({}, state, { isFetching: true });
-    case types.FETCH_PRODUCTS_ERROR:
+    case types.FETCH_PRODUCT_ERROR:
       return assign({}, state, { error: true });
-    case types.FETCH_PRODUCTS_SUCCESS:
-      return assign({}, state, { entries: action.data.products });
+    case types.FETCH_PRODUCT_SUCCESS:
+      return assign({}, state, { entries: action.data.product });
     default:
       return state;
   }

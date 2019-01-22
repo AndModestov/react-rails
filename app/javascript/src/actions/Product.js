@@ -3,15 +3,15 @@ import { productsApi } from "src/helpers/routes";
 
 import { API_CALL } from "src/middleware/API";
 
-export function fetchProducts() {
+export function fetchProduct(id) {
   return {
     [API_CALL]: {
-      endpoint: productsApi(),
+      endpoint: productsApi(id),
       method: "GET",
       types: [
-        types.FETCH_PRODUCTS_REQUEST,
-        types.FETCH_PRODUCTS_SUCCESS,
-        types.FETCH_PRODUCTS_ERROR
+        types.FETCH_PRODUCT_REQUEST,
+        types.FETCH_PRODUCT_SUCCESS,
+        types.FETCH_PRODUCT_ERROR
       ]
     }
   }
